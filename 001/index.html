@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.container {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f1f1f1;
+}
+
+.form-control input:valid {
+  background-color: #d2f2c2;
+}
+
+.form-control input:invalid {
+  background-color: #f5c5c5;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="login-form" class="login-form">
+        <h2>Login</h2>
+        <div class="form-control">
+          <input type="text" id="username" placeholder="Username" required />
+        </div>
+        <div class="form-control">
+          <input type="password" id="password" placeholder="Password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+
+const form = document.getElementById("login-form");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  if (validateForm()) {
+    // Submit the form
+    form.submit();
+  }
+});
+
+function validateForm() {
+  let isValid = true;
+
+  if (usernameInput.value.trim() === "") {
+    isValid = false;
+    setErrorFor(usernameInput, "Username cannot be blank");
+  } else {
+    setSuccessFor(usernameInput);
+  }
+
+  if (passwordInput.value.trim() === "") {
+    isValid = false;
+    setErrorFor(passwordInput, "Password cannot be blank");
+  } else {
+    setSuccessFor(passwordInput);
+  }
+
+  return isValid;
+}
+
+function setErrorFor(input, message) {
+  const formControl = input.parentElement;
+  const errorMessage = formControl.querySelector(".error-message");
+
+  formControl.classList.add("error");
+  errorMessage.innerText = message;
+}
+
+function setSuccessFor(input) {
+  const formControl = input.parentElement;
+
+  formControl.classList.remove("error");
+}
+
+
+
+
+    </script>
+  </body>
+</html>
