@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Dipnet Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <style type="text/css">
+      body {
+  background-color: #F8ECC2;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo-container img {
+  width: 200px;
+}
+
+.form-container {
+  background-color: #FFFFFF;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  min-width: 400px !important;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #3B3B3B;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #3B3B3B;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #D1D1D1;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #3B3B3B;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+    background-color: #7F83E6;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #6E72D6;
+}
+
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.paper-plane {
+  position: absolute;
+  bottom: -50px;
+  left: 20%;
+  width: 100px;
+  animation: paperPlane 5s infinite ease-in-out;
+}
+
+.cloud-1 {
+  position: absolute;
+  top: 20%;
+  right: -50px;
+  width: 200px;
+  animation: cloud 10s infinite linear;
+}
+
+.cloud-2 {
+  position: absolute;
+  top: 40%;
+  left: -50px;
+  width: 200px;
+  animation: cloud 10s infinite linear;
+}
+
+.sun {
+  position: absolute;
+  top: -50px;
+  right: 5%;
+  width: 150px;
+  animation: sun 5s infinite ease-in-out;
+}
+
+@keyframes paperPlane {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  50% {
+    transform: translate(50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(100%, -100%) rotate(90deg);
+  }
+}
+
+@keyframes cloud {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes sun {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  50% {
+    transform: translate(0, 50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(0, 100%) rotate(90deg);
+  }
+}
+
+.cloud-1, .cloud-2, .sun {
+  animation-timing-function: ease-out;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+  
+      <div class="form-container">
+        <h2>Login to Dipnet</h2>
+        <form>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+      </div>
+    </div>
+    <div class="animation-container">
+      <img class="paper-plane" src="https://www.onlygfx.com/wp-content/uploads/2021/07/paper-plane-1.png" alt="Paper Plane">
+      <img class="cloud-1" src="https://static.vecteezy.com/system/resources/previews/009/302/650/original/white-cloud-clipart-design-illustration-free-png.png" alt="Cloud 1">
+      <img class="cloud-2" src="https://static.vecteezy.com/system/resources/previews/009/302/650/original/white-cloud-clipart-design-illustration-free-png.png" alt="Cloud 2">
+      <img class="sun" src="https://www.pngarts.com/files/4/Sun-PNG-Download-Image.png" alt="Sun">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+    <script type="text/javascript">
+      $('.btn').click(function() {
+  $('html, body').animate({
+    scrollTop: $(".animation-container").offset().top
+  }, 1000);
+});
+    </script>
+  </body>
+</html>
